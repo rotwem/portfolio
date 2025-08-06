@@ -79,7 +79,7 @@
   /* padding-right: 27px;  */
   /* Space for custom scrollbar */
   /* Ensure content doesn't overlap with slide bar on mobile */
-  padding-bottom: 20px;
+  padding-bottom: 10px;
 }
 
 /* Custom scrollbar styling to match horizontal scrollbar */
@@ -305,11 +305,17 @@
 .arrow-left {
   font-size: 16px;
   color: #000;
+  font-family: Arial, sans-serif; /* Ensure consistent font rendering */
+  line-height: 1;
+  display: inline-block;
 }
 
 .arrow-right {
   font-size: 16px;
   color: #000;
+  font-family: Arial, sans-serif; /* Ensure consistent font rendering */
+  line-height: 1;
+  display: inline-block;
 }
 
 .footer-left {
@@ -524,7 +530,7 @@
   /* Ensure slide bar container has proper spacing from bottom */
   .slide-bar-container {
     grid-column: 1;
-    padding-bottom: 80px; /* Add bottom padding to prevent cropping by browser UI */
+    padding-bottom: 40px; /* Reduced padding to prevent being too high */
     margin-bottom: 20px;
   }
   
@@ -550,6 +556,9 @@
   
   .arrow-left, .arrow-right {
     font-size: 14px; /* Slightly larger arrows on mobile */
+    font-family: Arial, sans-serif; /* Ensure consistent font rendering on mobile */
+    line-height: 1;
+    display: inline-block;
   }
   
   /* Mobile work layout - single column with title below cover */
