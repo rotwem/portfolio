@@ -496,8 +496,14 @@
     font-size: 20px;
   }
 
+  .section{
+    gap: 20px;
+  }
+
+
   .section-title {
     margin-top: 20px;
+    margin-bottom: 0px;
   }
   
   .label-design, .label-technology {
@@ -558,7 +564,7 @@
   
   .work-item-title {
     order: 2; /* Title comes after cover */
-    justify-content: flex-end; /* Align title to the left */
+    justify-content: flex-start; /* Align title to the left */
   }
   
   .work-item-title .section-title {

@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 
 interface SliderProps {
   sliderValue: number
@@ -15,7 +15,9 @@ const Slider: React.FC<SliderProps> = ({
 }) => {
   const sliderRef = useRef<HTMLDivElement>(null)
   const arrowRef = useRef<HTMLDivElement>(null)
+  const arrowIconRef = useRef<HTMLDivElement>(null)
   const lastTapRef = useRef<number>(0)
+  const [showHintAnimation, setShowHintAnimation] = useState(true)
 
   const calculateValue = (clientX: number) => {
     if (sliderRef.current) {
@@ -62,6 +64,7 @@ const Slider: React.FC<SliderProps> = ({
 
   const handleMouseDown = (e: React.MouseEvent) => {
     e.preventDefault()
+    setShowHintAnimation(false) // Stop hint animation on interaction
     setIsDragging(true)
     const value = calculateValue(e.clientX)
     setSliderValue(value)
@@ -83,6 +86,7 @@ const Slider: React.FC<SliderProps> = ({
   // Touch event handlers for mobile
   const handleTouchStart = (e: React.TouchEvent) => {
     e.preventDefault()
+    setShowHintAnimation(false) // Stop hint animation on interaction
     setIsDragging(true)
     const touch = e.touches[0]
     const value = calculateValue(touch.clientX)
@@ -105,6 +109,7 @@ const Slider: React.FC<SliderProps> = ({
   }
 
   const handleDoubleClick = () => {
+    setShowHintAnimation(false) // Stop hint animation on interaction
     setSliderValue(0)
     updateSliderPosition(0)
   }
@@ -115,6 +120,7 @@ const Slider: React.FC<SliderProps> = ({
     
     if (now - lastTapRef.current < DOUBLE_TAP_DELAY) {
       // Double tap detected
+      setShowHintAnimation(false) // Stop hint animation on interaction
       setSliderValue(0)
       updateSliderPosition(0)
       lastTapRef.current = 0 // Reset to prevent triple tap
@@ -141,8 +147,46 @@ const Slider: React.FC<SliderProps> = ({
 
   useEffect(() => {
     // Initialize arrow position
-    updateSliderPosition(0)
+    updateSliderPosition(-75)
   }, [])
+
+  // Hint animation effect for the first 20 seconds
+  useEffect(() => {
+    if (!showHintAnimation) return
+
+    const animationDuration = 20000 // 20 seconds
+    const animationInterval = 1000 // 1 second per cycle
+    let animationFrame: number
+    let startTime = Date.now()
+
+    const animate = () => {
+      const elapsed = Date.now() - startTime
+      
+      if (elapsed >= animationDuration) {
+        setShowHintAnimation(false)
+        return
+      }
+
+      if (arrowIconRef.current) {
+        const timeInCycle = elapsed % animationInterval
+        const progress = timeInCycle / animationInterval
+        
+        // Create a smooth up and down movement (3px up, 3px down)
+        const offset = Math.sin(progress * Math.PI * 2) * 3
+        arrowIconRef.current.style.transform = `translateY(${offset}px)`
+      }
+
+      animationFrame = requestAnimationFrame(animate)
+    }
+
+    animate()
+
+    return () => {
+      if (animationFrame) {
+        cancelAnimationFrame(animationFrame)
+      }
+    }
+  }, [showHintAnimation])
 
   return (
     <div className="portfolio-grid">
@@ -166,7 +210,7 @@ const Slider: React.FC<SliderProps> = ({
             onTouchEnd={handleDoubleTap}
           >
             <div className="position-line"></div>
-            <div className="slide-bar-arrow">
+            <div className="slide-bar-arrow" ref={arrowIconRef}>
               <img src="./double_arrow.png" alt="Double arrow" className="double-arrow-icon" />
             </div>
           </div>

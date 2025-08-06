@@ -45,14 +45,14 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
         <div className="column desktop-nav">
           <nav className="nav-links">
             <a 
-              href="#work" 
-              className={`nav-link ${currentPage === 'work' ? 'active' : ''}`}
+              href="#projects" 
+              className={`nav-link ${currentPage === 'projects' ? 'active' : ''}`}
               onClick={(e) => {
                 e.preventDefault()
-                setCurrentPage('work')
+                setCurrentPage('projects')
               }}
             >
-              Work
+              Projects
             </a>
           </nav>
         </div>
@@ -62,8 +62,12 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
           <div className="contact">
             <div className="email">rotwem@gmail.com</div>
             <div className="social-icons">
-              <img src="./instagrm_logo.png" alt="Instagram" className="social-icon" />
-              <img src="./linkedin_logo.png" alt="LinkedIn" className="social-icon" />
+              <a href="https://www.instagram.com/rotwem/" target="_blank" rel="noopener noreferrer">
+                <img src="./instagrm_logo.png" alt="Instagram" className="social-icon" />
+              </a>
+              <a href="https://www.linkedin.com/in/rotem-shadur-6b0628175/" target="_blank" rel="noopener noreferrer">
+                <img src="./linkedin_logo.png" alt="LinkedIn" className="social-icon" />
+              </a>
             </div>
           </div>
         </div>
@@ -92,21 +96,25 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
               About
             </a>
             <a 
-              href="#work" 
-              className={`mobile-nav-link ${currentPage === 'work' ? 'active' : ''}`}
+              href="#projects" 
+              className={`mobile-nav-link ${currentPage === 'projects' ? 'active' : ''}`}
               onClick={(e) => {
                 e.preventDefault()
-                handleNavClick('work')
+                handleNavClick('projects')
               }}
             >
-              Work
+              Projects
             </a>
             
             <div className="mobile-contact">
               <div className="mobile-email">rotwem@gmail.com</div>
               <div className="mobile-social-icons">
-                <img src="./instagrm_logo.png" alt="Instagram" className="mobile-social-icon" />
-                <img src="./linkedin_logo.png" alt="LinkedIn" className="mobile-social-icon" />
+                <a href="https://www.instagram.com/rotwem/" target="_blank" rel="noopener noreferrer">
+                  <img src="./instagrm_logo.png" alt="Instagram" className="mobile-social-icon" />
+                </a>
+                <a href="https://www.linkedin.com/in/rotem-shadur-6b0628175/" target="_blank" rel="noopener noreferrer">
+                  <img src="./linkedin_logo.png" alt="LinkedIn" className="mobile-social-icon" />
+                </a>
               </div>
             </div>
           </nav>

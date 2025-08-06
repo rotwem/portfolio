@@ -2,11 +2,11 @@ import './App.css'
 import { useState } from 'react'
 import Header from './components/Header'
 import About from './components/About'
-import Work from './components/Work'
+import Projects from './components/Projects'
 import Slider from './components/Slider'
 
 function App() {
-  const [sliderValue, setSliderValue] = useState(0)
+  const [sliderValue, setSliderValue] = useState(-75)
   const [isDragging, setIsDragging] = useState(false)
   const [currentPage, setCurrentPage] = useState('about')
 
@@ -28,7 +28,7 @@ function App() {
         {currentPage === 'about' ? (
           <About sliderValue={sliderValue} calculateOpacity={calculateOpacity} />
         ) : (
-          <Work sliderValue={sliderValue} calculateOpacity={calculateOpacity} />
+          <Projects sliderValue={sliderValue} calculateOpacity={calculateOpacity} />
         )}
       </div>
 

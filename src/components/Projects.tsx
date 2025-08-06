@@ -1,13 +1,13 @@
 import React from 'react'
 
-interface WorkProps {
+interface ProjectsProps {
   sliderValue: number
   calculateOpacity: (tag: string) => number
 }
 
-const Work: React.FC<WorkProps> = ({ sliderValue: _sliderValue, calculateOpacity }) => {
-  // Work items data based on the files in work_covers folder
-  const workItems = [
+const Projects: React.FC<ProjectsProps> = ({ sliderValue: _sliderValue, calculateOpacity }) => {
+  // Projects items data based on the files in work_covers folder
+  const projectsItems = [
     {
       id: 1,
       title: "Present Progressive",
@@ -61,7 +61,7 @@ const Work: React.FC<WorkProps> = ({ sliderValue: _sliderValue, calculateOpacity
 
   return (
     <>
-      {workItems.map((item) => (
+      {projectsItems.map((item) => (
         <div key={item.id} className="portfolio-grid">
           {/* Empty column 1 */}
           <div className="column"></div>
@@ -99,4 +99,4 @@ const Work: React.FC<WorkProps> = ({ sliderValue: _sliderValue, calculateOpacity
   )
 }
 
-export default Work 
+export default Projects 
