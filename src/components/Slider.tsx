@@ -35,11 +35,27 @@ const Slider: React.FC<SliderProps> = ({
   }
 
   const updateSliderPosition = (value: number) => {
-    if (arrowRef.current) {
+    if (arrowRef.current && sliderRef.current) {
       // Convert value back to percentage
       const percentage = (value + 90) / 180
       // Use the full range (0-100%) to match the actual slider line
-      const positionPercentage = percentage * 100
+      let positionPercentage = percentage * 100
+      
+      // Get the slider width to calculate pixel constraints
+      const rect = sliderRef.current.getBoundingClientRect()
+      const sliderWidth = rect.width
+      
+      // Calculate 12px constraints as percentages
+      const constraintPixels = 12
+      const constraintPercentage = (constraintPixels / sliderWidth) * 100
+      
+      // Apply constraints (12px from each edge)
+      const minPosition = constraintPercentage
+      const maxPosition = 100 - constraintPercentage
+      
+      // Clamp the position within the constraints
+      positionPercentage = Math.max(minPosition, Math.min(maxPosition, positionPercentage))
+      
       arrowRef.current.style.left = `${positionPercentage}%`
     }
   }

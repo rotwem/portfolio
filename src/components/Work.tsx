@@ -63,40 +63,36 @@ const Work: React.FC<WorkProps> = ({ sliderValue: _sliderValue, calculateOpacity
     <>
       {workItems.map((item) => (
         <div key={item.id} className="portfolio-grid">
-          {/* Empty columns 1-2 */}
-          <div className="column"></div>
+          {/* Empty column 1 */}
           <div className="column"></div>
           
-          {/* Work item spanning columns 3-4 */}
-          <div className="work-item" style={{ opacity: calculateOpacity(item.tag) }}>
-            <div className="work-item-content">
-              
-              {/* left column - Cover image/video */}
-              <div className="work-item-cover">
-                {item.type === "video" ? (
-                  <video 
-                    src={`./work_covers/${item.filename}`}
-                    className="work-cover-media"
-                    muted
-                    loop
-                    playsInline
-                    autoPlay
-                  />
-                ) : (
-                  <img 
-                    src={`./work_covers/${item.filename}`}
-                    alt={item.title}
-                    className="work-cover-media"
-                  />
-                )}
-              </div>
-
-              {/* right column - Title */}
-              <div className="work-item-title">
-                <h3 className="section-title">[ {item.title} ]</h3>
-              </div>
-            </div>
+          {/* Title in column 2 */}
+          <div className="work-item-title" style={{ opacity: calculateOpacity(item.tag) }}>
+            <h3 className="section-title">[ {item.title} ]</h3>
           </div>
+          
+          {/* Cover image/video in column 3 */}
+          <div className="work-item-cover" style={{ opacity: calculateOpacity(item.tag) }}>
+            {item.type === "video" ? (
+              <video 
+                src={`./work_covers/${item.filename}`}
+                className="work-cover-media"
+                muted
+                loop
+                playsInline
+                autoPlay
+              />
+            ) : (
+              <img 
+                src={`./work_covers/${item.filename}`}
+                alt={item.title}
+                className="work-cover-media"
+              />
+            )}
+          </div>
+          
+          {/* Empty column 4 */}
+          <div className="column"></div>
         </div>
       ))}
     </>

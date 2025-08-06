@@ -154,7 +154,7 @@
 
 .social-icons {
   display: flex;
-  gap: 10px;
+  gap: 15px;
   align-items: center;
 }
 
@@ -558,7 +558,7 @@
   
   .work-item-title {
     order: 2; /* Title comes after cover */
-    justify-content: flex-start; /* Align title to the left */
+    justify-content: flex-end; /* Align title to the left */
   }
   
   .work-item-title .section-title {
