@@ -516,7 +516,7 @@
   /* Ensure slide bar container has proper spacing from bottom */
   .slide-bar-container {
     grid-column: 1;
-    padding-bottom: 20px; /* Reduced padding to prevent being too high */
+    /* padding-bottom: 20px; Reduced padding to prevent being too high */
     margin-bottom: 20px;
   }
   
