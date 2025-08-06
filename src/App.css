@@ -1,0 +1,564 @@
+/* Portfolio Layout */
+.portfolio {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 29px;
+  letter-spacing: 1%;
+  line-height: 1.2;
+  color: #000;
+  background: #fff;
+  height: 100vh;
+  padding: 0;
+  margin: 55px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 29px;
+  margin: 0 0 55px 0;
+  padding: 0;
+  max-width: none;
+  flex-shrink: 0;
+  /* padding-right: 27px; */
+}
+
+/* Add 55px gap between portfolio-grid divs */
+.portfolio-grid + .portfolio-grid {
+  margin-top: 55px;
+}
+
+/* Work Items */
+.work-item {
+  grid-column: 3 / 5;
+  display: flex;
+  flex-direction: column;
+}
+
+.work-item-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 27px;
+  align-items: start;
+}
+
+.work-item-title {
+  display: flex;
+  align-items: flex-start;
+}
+
+.work-item-title .section-title {
+  font-size: 29px;
+  font-weight: normal;
+  margin: 0;
+}
+
+.work-item-cover {
+  display: flex;
+  justify-content: flex-start;
+  align-items: left;
+}
+
+.work-cover-media {
+  width: 100%;
+  height: auto;
+  max-width: 400px;
+  object-fit: cover;
+  border-radius: 2;
+  border: 2px solid #000;
+}
+
+/* Scrollable content container */
+.scrollable-content {
+  flex: 1;
+  overflow-y: auto;
+  /* overflow-x: hidden; */
+  /* padding-right: 27px;  */
+  /* Space for custom scrollbar */
+}
+
+/* Custom scrollbar styling to match horizontal scrollbar */
+.scrollable-content::-webkit-scrollbar {
+  width: 2px;
+}
+
+.scrollable-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollable-content::-webkit-scrollbar-thumb {
+  background: #000;
+  border-radius: 0;
+  width: 2px;
+}
+
+.scrollable-content::-webkit-scrollbar-thumb:hover {
+  background: #333;
+}
+
+/* Firefox scrollbar styling */
+.scrollable-content {
+  scrollbar-width: thin;
+  scrollbar-color: #000 transparent;
+}
+
+/* Column Layout */
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Name */
+.name {
+  font-weight: bold;
+  font-size: 29px;
+}
+
+/* Navigation */
+.nav-links {
+  /* margin-bottom: 40px; */
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #000;
+  font-size: 29px;
+  transition: opacity 0.3s ease;
+}
+
+.nav-link:hover {
+  opacity: 0.7;
+}
+
+.nav-link.active {
+  text-decoration: underline;
+  font-style: italic;
+}
+
+/* Contact */
+.contact {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.email {
+  font-size: 29px;
+  gap: 10px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.social-icon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.social-icon:hover {
+  opacity: 0.7;
+}
+
+/* About Section - Spans columns 2-4 */
+.about-section {
+  grid-column: 2 / 5;
+}
+
+.about-content {
+  font-size: 29px;
+  line-height: 1.2;
+  max-width: none;
+}
+
+/* Sections */
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 55px;
+}
+
+.section-title {
+  font-size: 29px;
+  font-weight: normal;
+  margin: 0;
+  /* margin-bottom: 55px; */
+}
+
+/* Education Items */
+.section-item {
+  margin-bottom: 0 0 55px 0;
+}
+
+.main-text {
+  font-weight: bold;
+  font-size: 29px;
+  line-height: 1.2;
+}
+
+.secondary-text {
+  font-size: 29px;
+  line-height: 1.2;
+}
+
+.year-text{
+  font-size: 29px;
+  font-style: italic;
+  line-height: 1.2;
+}
+
+
+/* Footer */
+.footer {
+  grid-column: 1 / 5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+  border-top: 1px solid #000;
+}
+
+/* Horizontal Slide Bar */
+.slide-bar-container {
+  grid-column: 1 / 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 55px;
+  margin-bottom: 38px;
+}
+
+.slide-bar {
+  position: relative;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  touch-action: none; /* Prevent default touch behaviors */
+}
+
+.slide-bar-labels {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.label-design {
+  font-size: 29px;
+  font-weight: bold;
+  color: #000;
+}
+
+.label-technology {
+  font-size: 29px;
+  font-weight: bold;
+  color: #000;
+}
+
+.slide-bar-line {
+  width: 100%;
+  height: 2px;
+  background-color: #000;
+  position: relative;
+}
+
+.slide-bar-position-indicator {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: left 0.1s ease;
+  touch-action: none; /* Prevent default touch behaviors */
+}
+
+.position-line {
+  width: 20px;
+  height: 6px;
+  background-color: #000;
+  position: absolute;
+  top: 3px;
+}
+
+.slide-bar-arrow {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  position: absolute;
+  top: 27px;
+}
+
+.arrow-left {
+  font-size: 16px;
+  color: #000;
+}
+
+.arrow-right {
+  font-size: 16px;
+  color: #000;
+}
+
+.footer-left {
+  font-size: 29px;
+}
+
+.footer-right {
+  font-size: 29px;
+}
+
+.footer-arrow {
+  font-size: 32px;
+  margin: 0 20px;
+}
+
+/* Mobile Hamburger Menu Styles */
+.mobile-menu-container {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.hamburger-menu {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1001;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+}
+
+.hamburger-icon {
+  width: 100%;
+  height: auto;
+  transition: opacity 0.3s ease;
+}
+
+.mobile-nav-overlay {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.95);
+  z-index: 1000;
+  transition: right 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile-nav-overlay.open {
+  right: 0;
+}
+
+.mobile-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.mobile-nav-link {
+  text-decoration: none;
+  color: #000;
+  font-size: 20px;
+  font-weight: bold;
+  transition: opacity 0.3s ease;
+}
+
+.mobile-nav-link:hover {
+  opacity: 0.7;
+}
+
+.mobile-nav-link.active {
+  text-decoration: underline;
+  font-style: italic;
+}
+
+.mobile-contact {
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+.mobile-email {
+  font-size: 20px;
+  color: #000;
+  text-align: left;
+}
+
+.mobile-social-icons {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.mobile-social-icon {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.mobile-social-icon:hover {
+  opacity: 0.7;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .portfolio-grid {
+    margin: 0 30px;
+    gap: 20px;
+  }
+  
+  .portfolio-grid + .portfolio-grid {
+    margin-top: 40px;
+  }
+  
+  .portfolio {
+    font-size: 28px;
+  }
+  
+  .name, .nav-link, .email, .section-title, .main-text, .year, .company, .position, .skill-category, .skill-list, .about-content, .footer-left, .footer-right, .footer-arrow {
+    font-size: 28px;
+  }
+  
+  .label-design, .label-technology {
+    font-size: 28px;
+  }
+  
+  .arrow-left, .arrow-right {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+    margin: 0 20px;
+    gap: 20px;
+  }
+  
+  .portfolio-grid + .portfolio-grid {
+    margin-top: 20px;
+  }
+  
+  /* Hide desktop navigation on mobile */
+  .desktop-nav {
+    display: none;
+  }
+  
+  /* Hide contact in header on mobile since it's in hamburger menu */
+  .contact {
+    display: none;
+  }
+  
+  /* Show mobile menu on mobile */
+  .mobile-menu-container {
+    display: block;
+  }
+  
+  .about-section {
+    grid-column: 1;
+    margin-top: 20px;
+  }
+  
+  .slide-bar-container {
+    grid-column: 1;
+  }
+  
+  .portfolio {
+    font-size: 20px;
+    margin: 30px 15px 15px 15px;
+  }
+  
+  .name, .nav-link, .email, .section-title, .main-text, .secondary-text, .year-text, .year, .company, .position, .skill-category, .skill-list, .about-content, .footer-left, .footer-right, .footer-arrow {
+    font-size: 20px;
+  }
+
+  .section-title {
+    margin-top: 20px;
+  }
+  
+  .label-design, .label-technology {
+    font-size: 20px;
+  }
+  
+  .arrow-left, .arrow-right {
+    font-size: 12px;
+  }
+  
+  /* Mobile slider improvements */
+  .slide-bar {
+    height: 100px; /* Larger touch target on mobile */
+  }
+  
+  .slide-bar-position-indicator {
+    /* Larger touch target for the indicator */
+    min-width: 40px;
+    min-height: 40px;
+    /* Remove any width constraints to allow full edge movement */
+    max-width: none;
+  }
+  
+  .position-line {
+    width: 24px; /* Slightly larger on mobile */
+    height: 8px; /* Slightly larger on mobile */
+    top: 2px;
+  }
+  
+  .slide-bar-arrow {
+    top: 24px; /* Adjust position for larger indicator */
+  }
+  
+  .arrow-left, .arrow-right {
+    font-size: 14px; /* Slightly larger arrows on mobile */
+  }
+  
+  /* Mobile work layout - single column with title below cover */
+  .work-item {
+    grid-column: 1; /* Span only one column on mobile */
+  }
+  
+  .work-item-content {
+    grid-template-columns: 1fr; /* Single column layout */
+    gap: 20px; /* Reduced gap for mobile */
+  }
+  
+  .work-item-title {
+    order: 2; /* Title comes after cover */
+    justify-content: flex-start; /* Align title to the left */
+  }
+  
+  .work-item-title .section-title {
+    font-size: 20px; /* Override the more specific rule for mobile */
+  }
+  
+  .work-item-cover {
+    order: 1; /* Cover comes first */
+    justify-content: flex-start; /* Align cover to the left */
+  }
+
+}
