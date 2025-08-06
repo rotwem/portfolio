@@ -75,7 +75,7 @@ const Work: React.FC<WorkProps> = ({ sliderValue: _sliderValue, calculateOpacity
               <div className="work-item-cover">
                 {item.type === "video" ? (
                   <video 
-                    src={`/work_covers/${item.filename}`}
+                    src={`./work_covers/${item.filename}`}
                     className="work-cover-media"
                     muted
                     loop
@@ -84,7 +84,7 @@ const Work: React.FC<WorkProps> = ({ sliderValue: _sliderValue, calculateOpacity
                   />
                 ) : (
                   <img 
-                    src={`/work_covers/${item.filename}`}
+                    src={`./work_covers/${item.filename}`}
                     alt={item.title}
                     className="work-cover-media"
                   />

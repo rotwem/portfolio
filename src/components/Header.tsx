@@ -62,8 +62,8 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
           <div className="contact">
             <div className="email">rotwem@gmail.com</div>
             <div className="social-icons">
-              <img src="/instagrm_logo.png" alt="Instagram" className="social-icon" />
-              <img src="/linkedin_logo.png" alt="LinkedIn" className="social-icon" />
+              <img src="./instagrm_logo.png" alt="Instagram" className="social-icon" />
+              <img src="./linkedin_logo.png" alt="LinkedIn" className="social-icon" />
             </div>
           </div>
         </div>
@@ -73,7 +73,7 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
       <div className="mobile-menu-container">
         <button className="hamburger-menu" onClick={toggleMenu}>
           <img 
-            src={isMenuOpen ? "/hamburger_menu/exit.png" : "/hamburger_menu/menu.png"}
+            src={isMenuOpen ? "./hamburger_menu/exit.png" : "./hamburger_menu/menu.png"}
             alt={isMenuOpen ? "Close menu" : "Open menu"}
             className="hamburger-icon"
           />
@@ -105,8 +105,8 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
             <div className="mobile-contact">
               <div className="mobile-email">rotwem@gmail.com</div>
               <div className="mobile-social-icons">
-                <img src="/instagrm_logo.png" alt="Instagram" className="mobile-social-icon" />
-                <img src="/linkedin_logo.png" alt="LinkedIn" className="mobile-social-icon" />
+                <img src="./instagrm_logo.png" alt="Instagram" className="mobile-social-icon" />
+                <img src="./linkedin_logo.png" alt="LinkedIn" className="mobile-social-icon" />
               </div>
             </div>
           </nav>
