@@ -8,7 +8,7 @@ interface SliderProps {
 }
 
 const Slider: React.FC<SliderProps> = ({ 
-  sliderValue, 
+  sliderValue: _sliderValue, 
   setSliderValue, 
   isDragging, 
   setIsDragging 

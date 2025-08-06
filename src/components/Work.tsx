@@ -5,7 +5,7 @@ interface WorkProps {
   calculateOpacity: (tag: string) => number
 }
 
-const Work: React.FC<WorkProps> = ({ sliderValue, calculateOpacity }) => {
+const Work: React.FC<WorkProps> = ({ sliderValue: _sliderValue, calculateOpacity }) => {
   // Work items data based on the files in work_covers folder
   const workItems = [
     {
