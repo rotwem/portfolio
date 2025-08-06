@@ -287,7 +287,7 @@
 }
 
 .position-line {
-  width: 20px;
+  width: 24px;
   height: 6px;
   background-color: #000;
   position: absolute;
@@ -302,20 +302,10 @@
   top: 27px;
 }
 
-.arrow-left {
-  font-size: 16px;
-  color: #000;
-  font-family: Arial, sans-serif; /* Ensure consistent font rendering */
-  line-height: 1;
-  display: inline-block;
-}
-
-.arrow-right {
-  font-size: 16px;
-  color: #000;
-  font-family: Arial, sans-serif; /* Ensure consistent font rendering */
-  line-height: 1;
-  display: inline-block;
+.double-arrow-icon {
+  width: 24px; /* Same width as position-line */
+  height: auto;
+  display: block;
 }
 
 .footer-left {
@@ -458,9 +448,7 @@
     font-size: 28px;
   }
   
-  .arrow-left, .arrow-right {
-    font-size: 14px;
-  }
+
 }
 
 @media (max-width: 768px) {
@@ -516,9 +504,7 @@
     font-size: 20px;
   }
   
-  .arrow-left, .arrow-right {
-    font-size: 12px;
-  }
+
   
   /* Mobile slider improvements */
   .slide-bar {
@@ -530,7 +516,7 @@
   /* Ensure slide bar container has proper spacing from bottom */
   .slide-bar-container {
     grid-column: 1;
-    padding-bottom: 40px; /* Reduced padding to prevent being too high */
+    padding-bottom: 20px; /* Reduced padding to prevent being too high */
     margin-bottom: 20px;
   }
   
@@ -554,11 +540,10 @@
     top: 24px; /* Adjust position for larger indicator */
   }
   
-  .arrow-left, .arrow-right {
-    font-size: 14px; /* Slightly larger arrows on mobile */
-    font-family: Arial, sans-serif; /* Ensure consistent font rendering on mobile */
-    line-height: 1;
-    display: inline-block;
+  .double-arrow-icon {
+    width: 24px; /* Slightly larger on mobile to match position-line */
+    height: auto;
+    display: block;
   }
   
   /* Mobile work layout - single column with title below cover */

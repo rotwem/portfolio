@@ -151,8 +151,7 @@ const Slider: React.FC<SliderProps> = ({
           >
             <div className="position-line"></div>
             <div className="slide-bar-arrow">
-              <div className="arrow-left">◀</div>
-              <div className="arrow-right">▶</div>
+              <img src="./double_arrow.png" alt="Double arrow" className="double-arrow-icon" />
             </div>
           </div>
         </div>
