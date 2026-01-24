@@ -3,9 +3,10 @@ import React, { useState } from 'react'
 interface HeaderProps {
   currentPage: string
   setCurrentPage: (page: string) => void
+  navbarColor?: 'black' | 'white'
 }
 
-const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
+const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage, navbarColor = 'black' }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const toggleMenu = () => {
@@ -17,60 +18,50 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
     setIsMenuOpen(false) // Close menu when a link is clicked
   }
 
+  const textColor = navbarColor === 'white' ? '#fff' : '#000'
+
   return (
     <>
-      <div className="portfolio-grid">
-        {/* Column 1 */}
-        <div className="column">
-          <div className="name">Rotem Shadur</div>
+      <div className="nav-bar-container" style={{ color: textColor }}>
+        <div className="name" style={{ color: textColor }}>
+          <span className="name-rotem" style={{ color: textColor }}>Rotem</span>
+          <span className="name-shadur" style={{ color: textColor }}> Shadur</span>
         </div>
-
-        {/* Column 2 - Desktop nav */}
-        <div className="column desktop-nav">
-          <nav className="nav-links">
-            <a 
-              href="#about" 
-              className={`nav-link ${currentPage === 'about' ? 'active' : ''}`}
-              onClick={(e) => {
-                e.preventDefault()
-                setCurrentPage('about')
-              }}
-            >
-              About
-            </a>
-          </nav>
-        </div>
-
-        {/* Column 3 - Desktop nav */}
-        <div className="column desktop-nav">
-          <nav className="nav-links">
-            <a 
-              href="#projects" 
-              className={`nav-link ${currentPage === 'projects' ? 'active' : ''}`}
-              onClick={(e) => {
-                e.preventDefault()
-                setCurrentPage('projects')
-              }}
-            >
-              Projects
-            </a>
-          </nav>
-        </div>
-
-        {/* Column 4 */}
-        <div className="column">
-          <div className="contact">
-            <div className="email">rotwem@gmail.com</div>
-            <div className="social-icons">
-              <a href="https://www.instagram.com/rotwem/" target="_blank" rel="noopener noreferrer">
-                <img src="./instagrm_logo.png" alt="Instagram" className="social-icon" />
-              </a>
-              <a href="https://www.linkedin.com/in/rotem-shadur-6b0628175/" target="_blank" rel="noopener noreferrer">
-                <img src="./linkedin_logo.png" alt="LinkedIn" className="social-icon" />
-              </a>
-            </div>
-          </div>
-        </div>
+        <nav className="nav-links desktop-nav" style={{ color: textColor }}>
+          <a 
+            href="#about" 
+            className={`nav-link ${currentPage === 'about' ? 'active' : ''}`}
+            style={{ color: textColor }}
+            onClick={(e) => {
+              e.preventDefault()
+              setCurrentPage('about')
+            }}
+          >
+            about
+          </a>
+          <a 
+            href="#projects" 
+            className={`nav-link ${currentPage === 'projects' ? 'active' : ''}`}
+            style={{ color: textColor }}
+            onClick={(e) => {
+              e.preventDefault()
+              setCurrentPage('projects')
+            }}
+          >
+            projects
+          </a>
+          <a 
+            href="#cv" 
+            className={`nav-link ${currentPage === 'cv' ? 'active' : ''}`}
+            style={{ color: textColor }}
+            onClick={(e) => {
+              e.preventDefault()
+              setCurrentPage('cv')
+            }}
+          >
+            cv
+          </a>
+        </nav>
       </div>
 
       {/* Mobile Hamburger Menu - Outside the grid */}
@@ -88,6 +79,7 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
             <a 
               href="#about" 
               className={`mobile-nav-link ${currentPage === 'about' ? 'active' : ''}`}
+              style={{ color: textColor }}
               onClick={(e) => {
                 e.preventDefault()
                 handleNavClick('about')
@@ -96,8 +88,20 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
               About
             </a>
             <a 
+              href="#cv" 
+              className={`mobile-nav-link ${currentPage === 'cv' ? 'active' : ''}`}
+              style={{ color: textColor }}
+              onClick={(e) => {
+                e.preventDefault()
+                handleNavClick('cv')
+              }}
+            >
+              CV
+            </a>
+            <a 
               href="#projects" 
               className={`mobile-nav-link ${currentPage === 'projects' ? 'active' : ''}`}
+              style={{ color: textColor }}
               onClick={(e) => {
                 e.preventDefault()
                 handleNavClick('projects')
@@ -107,7 +111,7 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
             </a>
             
             <div className="mobile-contact">
-              <div className="mobile-email">rotwem@gmail.com</div>
+              <div className="mobile-email" style={{ color: textColor }}>rotwem@gmail.com</div>
               <div className="mobile-social-icons">
                 <a href="https://www.instagram.com/rotwem/" target="_blank" rel="noopener noreferrer">
                   <img src="./instagrm_logo.png" alt="Instagram" className="mobile-social-icon" />

@@ -25,8 +25,16 @@ const Slider: React.FC<SliderProps> = ({
       const sliderWidth = rect.width
       const clickPosition = clientX - rect.left
       
-      // Calculate percentage (0 to 1)
-      const percentage = Math.max(0, Math.min(1, clickPosition / sliderWidth))
+      // Calculate constrained click position (account for 12px padding on each side)
+      const constraintPixels = 12
+      const constrainedClickPosition = Math.max(
+        constraintPixels,
+        Math.min(sliderWidth - constraintPixels, clickPosition)
+      )
+      
+      // Calculate percentage within the constrained range
+      const constrainedWidth = sliderWidth - (constraintPixels * 2)
+      const percentage = (constrainedClickPosition - constraintPixels) / constrainedWidth
       
       // Map to -90 to +90 range
       const value = (percentage * 180) - 90
@@ -40,8 +48,6 @@ const Slider: React.FC<SliderProps> = ({
     if (arrowRef.current && sliderRef.current) {
       // Convert value back to percentage
       const percentage = (value + 90) / 180
-      // Use the full range (0-100%) to match the actual slider line
-      let positionPercentage = percentage * 100
       
       // Get the slider width to calculate pixel constraints
       const rect = sliderRef.current.getBoundingClientRect()
@@ -55,8 +61,8 @@ const Slider: React.FC<SliderProps> = ({
       const minPosition = constraintPercentage
       const maxPosition = 100 - constraintPercentage
       
-      // Clamp the position within the constraints
-      positionPercentage = Math.max(minPosition, Math.min(maxPosition, positionPercentage))
+      // Convert percentage to position percentage (accounting for constraints)
+      let positionPercentage = minPosition + (percentage * (maxPosition - minPosition))
       
       arrowRef.current.style.left = `${positionPercentage}%`
     }
@@ -147,7 +153,7 @@ const Slider: React.FC<SliderProps> = ({
 
   useEffect(() => {
     // Initialize arrow position
-    updateSliderPosition(-75)
+    updateSliderPosition(0)
   }, [])
 
   // Hint animation effect for the first 20 seconds
@@ -189,7 +195,7 @@ const Slider: React.FC<SliderProps> = ({
   }, [showHintAnimation])
 
   return (
-    <div className="portfolio-grid">
+    <div className="slider-container-wrapper">
       <div className="slide-bar-container">
         <div 
           className="slide-bar" 

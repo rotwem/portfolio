@@ -1,0 +1,115 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "title": "Present Progressive",
+      "subtitle": "Interactive Experience, 2025",
+      "description": "This is an aesthetic-emotional-technological experiment about the role of observation in constructing our reality, based on the understanding that reality is, in a way, an invention. We all keep trying: waking up in the morning, making an effort, going to sleep, and doing it all over again - even though, arguably, this effort doesn’t really mean much and we all die in the end (sorry for the spoiler). The project is an interactive experience controlled by the user’s gaze, while being exposed to a dual dialogue that says on one hand - I want and I’m trying! and on the other - why do I even want and try so hard? The project looks like a game but isn’t; it’s a deliberate statement meant to amplify the absurdity that emerges when we truly observe",
+      "media": [
+        "01.mp4",
+        "03.png",
+        "04.mp4",
+        "05.png",
+        "06.mp4",
+        "07.png",
+        "08.jpeg",
+        "09.jpeg"
+      ],
+      "link": "https://rotwem.github.io/presentprogressive/",
+      "link_comments": "make sure you are facing a webcame."
+    },
+    {
+      "id": 2,
+      "title": "The Cognitive Archive",
+      "subtitle": "App Design, 2025",
+      "description": "For this project, we were asked to choose a site in Jerusalem and conduct a research-based exploration of its identity, which would then serve as a foundation for a self-directed project. I chose the National Campus for the Archaeology of Israel, the headquarters of the Israel Antiquities Authority. Through my research, I came to understand that an archaeological artifact holds meaning only when it reveals something about the human culture of its time. This led me to ask: How can humans themselves become archaeological artifacts? From this question, I conceptualized a fictional institution called The Cognitive Archive, a speculative initiative by the Israel Antiquities Authority. I designed an interactive conversational app based on imagined “consciousness reconstruction” technology, allowing users to engage in dialogue with key historical figures from Israel’s past. The project explores memory, identity, and the preservation of culture through a speculative, tech-driven lens.​​​​​​​",
+      "media": [
+        "01.mov",
+        "03.png",
+        "04.mov",
+        "05.mov",
+        "06.png",
+        "07.mov",
+        "08.mov",
+        "09.mov",
+        "10.png",
+        "11.png"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Spectrums",
+      "subtitle": "Web Design and Inphographics, 2024",
+      "description": "Jerusalem as Spectrums is a data-driven visual exploration of identity, belief, and belonging in the city of Jerusalem. Based on anonymous responses from past and present residents, the project maps personal stances along three spectrums: faith, conservatism, and love. through both self-placement and open-text reflections. These were processed into three-dimensional visualizations using semantic analysis and language models, translating subjective viewpoints into spatial relationships. Presented as an interactive web experience, the project offers poetic-yet-analytical navigation through 3D spectrums, an index of participant perspectives, and abstract visualizations grounded in the city’s cultural complexity. It avoids fixed definitions, instead embracing ambiguity, nuance, and the in-between spaces that shape both individual and collective identities.",
+      "media": [
+        "01.mp4",
+        "02.mp4",
+        "03.mp4",
+        "04.mp4",
+        "05.mp4",
+        "06.mp4",
+        "07.png",
+        "08.png",
+        "09.png",
+        "10.png",
+        "11.png",
+        "12.png",
+        "13.png"
+      ],
+      "link": "https://readymag.website/u2985146199/5272635/",
+      "link_comments": "Better to explore in full-screen."
+    },
+    {
+      "id": 4,
+      "title": "Corno",
+      "subtitle": "App Design, 2024",
+      "description": "Corno is a mobile app designed to support individuals recovering from porn addiction. Guiding users from the decision to get clean, through progress tracking, to maintaining long-term sobriety. Alongside designing the interface and user experience, my partner and I led user research and testing to better understand emotional and behavioral challenges such as loneliness, lack of motivation, and social stigma. These insights informed features like anonymous onboarding, support forums and chats, motivational tools, and a personalized progress tracker. We also named the app “corno,” inspired by the coded way people refer to porn online to avoid content bans - underscoring the project’s sensitivity to both cultural nuance and user needs. The result is a safe, stigma-free space that empowers users throughout their recovery journey.",
+      "media": [
+        "01.mp4",
+        "02.mp4",
+        "03.mp4",
+        "04.mp4",
+        "05.mp4"
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Evolution",
+      "subtitle": "Graphic - Typographic Design, 2023",
+      "description": "A series exploring digital transformation and evolution through time-lapse visual sequences. The project examines how digital forms can evolve and adapt in simulated environments.",
+      "media": [
+        "01.mp4",
+        "02.png",
+        "03.png",
+        "04.png",
+        "05.png",
+        "06.png",
+        "07.png",
+        "08.mp4"
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Jiao",
+      "subtitle": "Branding, 2023",
+      "description": "Branding and packaging design for reflexology socks. The project involved creating a visual identity that conveys the therapeutic benefits of reflexology while also designing packaging that is both attractive and functional. The goal was to create a cohesive brand experience that appeals to wellness-conscious consumers.",
+      "media": [
+        "01.png",
+        "02.png",
+        "03.png",
+        "04.png",
+        "05.mp4"
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Chime",
+      "subtitle": "Human-Computer Interaction, 2022",
+      "description": "Chime is a project developed as part of a Human-Computer Interaction course in my Computer Science studies. The course combined theoretical foundations with hands-on skills such as gesture recognition, working with Arduino and sensors, and 3D modeling and printing. In collaboration with a pediatric rehabilitation hospital, our challenge was to design a tool or toy that helps children practice the act of exhaling. Inspired by magical portals and wind chimes, we created an interactive device where a glowing ball prompts the user to blow on it. The strength of the exhalation is then visualized on a screen, turning a rehabilitation exercise into a playful, engaging experience.",
+      "media": [
+        "01.mp4",
+        "02.png"
+      ]
+    }
+  ]
+}

@@ -1,6 +1,54 @@
+/* Typography Styles */
+.typography-style-1 {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 400;
+  font-size: 41px;
+  line-height: 55px;
+}
+
+.typography-style-2 {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 700;
+  font-size: 41px;
+  line-height: 55px;
+}
+
+.typography-style-3 {
+  font-family: 'IBM Plex Serif', serif;
+  font-weight: 700;
+  font-size: 41px;
+  line-height: 55px;
+}
+
+.typography-style-4 {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 700;
+  font-size: 27px;
+}
+
+.typography-style-5 {
+  font-family: 'IBM Plex Serif', serif;
+  font-weight: 700;
+  font-size: 27px;
+}
+
+.typography-style-6 {
+  font-family: 'IBM Plex Serif', serif;
+  font-weight: 400;
+  font-size: 27px;
+  text-decoration: underline;
+}
+
+.typography-style-7 {
+  font-family: 'IBM Plex Serif', serif;
+  font-weight: 400;
+  font-size: 19px;
+  text-decoration: underline;
+}
+
 /* Portfolio Layout */
 .portfolio {
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: 'IBM Plex Sans', sans-serif;
   font-size: 29px;
   letter-spacing: 1%;
   line-height: 1.2;
@@ -9,33 +57,189 @@
   height: 100vh;
   height: 100dvh; /* Use dynamic viewport height for mobile */
   padding: 0;
-  margin: 55px;
+  margin: 0;
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
+/* Nav Bar Container */
+.nav-bar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 33px;
+  margin: 0;
+  width: 100%;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 100;
+  background: transparent;
+  color: #000; /* Default black text for about and cv pages */
+}
+
+/* Main Content Container */
+.main-content-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0 55px;
+  margin: 0;
+  width: 100%;
+}
+
+/* Slider Container */
+.slider-container-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 33px;
+  margin: 0;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+/* Legacy grid support (for components that still use it temporarily) */
 .portfolio-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 29px;
-  margin: 0 0 55px 0;
+  display: block;
+  margin: 0;
   padding: 0;
   max-width: none;
-  flex-shrink: 0;
-  /* padding-right: 27px; */
 }
 
-/* Add 55px gap between portfolio-grid divs */
-.portfolio-grid + .portfolio-grid {
-  margin-top: 55px;
+/* Projects Page */
+/* Global cursor hiding when projects page is active */
+body.projects-cursor-hidden,
+html.projects-cursor-hidden,
+body.projects-cursor-hidden *,
+html.projects-cursor-hidden * {
+  cursor: none !important;
 }
 
-/* Work Items */
+/* Exception: keep default cursor on navbar */
+body.projects-cursor-hidden .nav-bar-container,
+body.projects-cursor-hidden .nav-bar-container *,
+body.projects-cursor-hidden .mobile-menu-container,
+body.projects-cursor-hidden .mobile-menu-container * {
+  cursor: auto !important;
+}
+
+.projects-page {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  z-index: 0;
+  cursor: none !important;
+}
+
+/* Hide default cursor on projects page and all its children */
+.projects-page,
+.projects-page *,
+.projects-page > *,
+.projects-page video,
+.projects-page img,
+.projects-page div,
+.projects-media,
+.projects-cursor {
+  cursor: none !important;
+}
+
+.projects-media {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  pointer-events: none; /* Allow clicks to pass through to container */
+  cursor: none !important;
+}
+
+/* Custom cursor arrow */
+.projects-cursor {
+  position: fixed;
+  pointer-events: none;
+  z-index: 200;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease-out;
+  cursor: none !important;
+}
+
+.cursor-arrow {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 30px;
+  max-height: 30px;
+  cursor: none !important;
+}
+
+.cursor-left .cursor-arrow {
+  transform: scaleX(-1); /* Horizontal mirror for left side */
+}
+
+/* Project info overlay */
+.projects-overlay {
+  position: fixed;
+  bottom: 33px;
+  left: 33px;
+  z-index: 150;
+  pointer-events: none; /* Don't interfere with clicks */
+  font-family: 'IBM Plex Sans', sans-serif;
+  text-align: left;
+  max-width: 550px;
+  /* Color is set dynamically via inline style based on projectInfo.textColor */
+}
+
+.project-number {
+  font-size: 19px;
+  font-weight: 400;
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+
+.project-name {
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 12px;
+}
+
+.project-description {
+  font-size: 19px;
+  font-weight: 400;
+  line-height: 1.4;
+  margin-left: 66px;
+}
+
+.project-description a {
+  font-family: 'IBM Plex Serif', serif;
+  font-size: 19px;
+  font-weight: 400;
+  text-decoration: underline;
+  color: inherit;
+  cursor: pointer !important;
+  transition: opacity 0.3s ease;
+  pointer-events: auto; /* Allow clicks on links */
+}
+
+.project-description a:hover {
+  opacity: 0.7;
+}
+
+/* Work Items (legacy - keeping for other pages) */
 .work-item {
-  grid-column: 3 / 5;
   display: flex;
   flex-direction: column;
+  width: 100%;
+  margin: 0 0 55px 0;
+  padding: 0;
 }
 
 .work-item-content {
@@ -75,12 +279,21 @@
 .scrollable-content {
   flex: 1;
   overflow-y: auto;
-  /* overflow-x: hidden; */
-  /* padding-right: 27px;  */
-  /* Space for custom scrollbar */
-  /* Ensure content doesn't overlap with slide bar on mobile */
+  padding: 0 33px;
   padding-bottom: 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
 }
+
+/* When projects page is active, remove padding and overflow */
+.scrollable-content.projects-active {
+  padding: 0;
+  overflow: hidden;
+}
+
 
 /* Custom scrollbar styling to match horizontal scrollbar */
 .scrollable-content::-webkit-scrollbar {
@@ -115,20 +328,47 @@
 
 /* Name */
 .name {
-  font-weight: bold;
-  font-size: 29px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 0;
+  cursor: pointer;
+}
+
+.name-rotem {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 700;
+  font-size: 27px;
+  color: #000;
+}
+
+.name-shadur {
+  font-family: 'IBM Plex Serif', serif;
+  font-weight: 700;
+  font-size: 27px;
+  margin-left: 0.2em;
+  color: #000;
 }
 
 /* Navigation */
 .nav-links {
-  /* margin-bottom: 40px; */
+  display: flex;
+  gap: 29px;
+  align-items: center;
+  margin: 0;
+  padding: 0;
 }
 
 .nav-link {
   text-decoration: none;
   color: #000;
-  font-size: 29px;
   transition: opacity 0.3s ease;
+  font-family: 'IBM Plex Serif', serif;
+  font-weight: 400;
+  font-size: 27px;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .nav-link:hover {
@@ -136,31 +376,47 @@
 }
 
 .nav-link.active {
-  text-decoration: underline;
-  font-style: italic;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 700;
+  font-size: 27px;
+  color: #000;
+  text-decoration: none;
 }
 
 /* Contact */
 .contact {
   display: flex;
-  justify-content: space-between;
+  gap: 29px;
   align-items: center;
+  margin: 0;
+  padding: 0;
 }
 
 .email {
-  font-size: 29px;
-  gap: 10px;
+  font-size: 23px;
+  gap: 1vw;
 }
 
 .social-icons {
   display: flex;
-  gap: 15px;
+  gap: 29px;
   align-items: center;
 }
 
+.social-icons a {
+  text-decoration: none;
+  color: #000;
+  font-size: 23px;
+  transition: opacity 0.3s ease;
+}
+
+.social-icons a:hover {
+  opacity: 0.7;
+}
+
 .social-icon {
-  width: 24px;
-  height: 24px;
+  width: 23px;
+  height: 23px;
   cursor: pointer;
   transition: opacity 0.3s ease;
 }
@@ -169,15 +425,146 @@
   opacity: 0.7;
 }
 
-/* About Section - Spans columns 2-4 */
+/* About Section */
 .about-section {
-  grid-column: 2 / 5;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: fit-content;
+}
+
+/* CV Section */
+.cv-section {
+  width: 80%;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 33px;
+  max-width: none;
+}
+
+/* CV should start at top, not centered */
+.scrollable-content:has(.cv-section) {
+  justify-content: flex-start;
+  padding-top: 33px;
+}
+
+/* CV Specific Styling */
+.cv-section {
+  gap: 33px;
+}
+
+.cv-section .section {
+  gap: 33px;
+}
+
+.cv-section .section-item {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* CV Typography Styles */
+.cv-section .section-title {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 400;
+  font-size: 41px;
+  line-height: 55px;
+  margin: 0;
+  margin-bottom: 0px;
+  padding-bottom: 0;
+  border-bottom: none;
+  text-transform: capitalize;
+}
+
+.cv-section .main-text {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 700;
+  font-size: 19px;
+  line-height: 1.3;
+  text-decoration: none;
+}
+
+.cv-section .secondary-text {
+  font-family: 'IBM Plex Serif', serif;
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 1.3;
+  text-decoration: none;
+}
+
+.cv-section .year-text {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 400;
+  font-size: 19px;
+  font-style: italic;
+  line-height: 1.3;
+  opacity: 0.5;
+  text-decoration: none;
 }
 
 .about-content {
-  font-size: 29px;
-  line-height: 1.2;
   max-width: none;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 29px;
+}
+
+.about-text-style-1 {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 400;
+  font-size: 41px;
+  line-height: 55px;
+}
+
+.about-text-style-2 {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 700;
+  font-size: 41px;
+  line-height: 55px;
+}
+
+.about-text-style-3 {
+  font-family: 'IBM Plex Serif', serif;
+  font-weight: 700;
+  font-size: 41px;
+  line-height: 55px;
+}
+
+.about-section .contact {
+  margin-top: 29px;
+  padding-top: 0;
+  font-size: 23px;
+  display: flex;
+  gap: 29px;
+  align-items: center;
+}
+
+.about-section .contact .email {
+  font-size: 23px;
+}
+
+.about-section .contact a {
+  text-decoration: underline;
+  color: #000;
+  font-family: 'IBM Plex Serif', serif;
+  font-weight: 400;
+  font-size: 19px;
+  transition: opacity 0.3s ease;
+}
+
+.about-section .contact a:hover {
+  opacity: 0.7;
+}
+
+.about-section .contact .email {
+  font-family: 'IBM Plex Serif', serif;
+  font-weight: 400;
+  font-size: 19px;
+  text-decoration: underline;
 }
 
 /* Sections */
@@ -191,12 +578,16 @@
   font-size: 29px;
   font-weight: normal;
   margin: 0;
-  /* margin-bottom: 55px; */
+  margin-bottom: 30px;
+  padding-bottom: 0;
+  border-bottom: none;
+  text-transform: capitalize;
 }
 
 /* Education Items */
 .section-item {
-  margin-bottom: 0 0 55px 0;
+  margin-top: 33px;
+  margin-bottom: 0;
 }
 
 .main-text {
@@ -219,7 +610,7 @@
 
 /* Footer */
 .footer {
-  grid-column: 1 / 5;
+  grid-column: 1 / 6;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -229,12 +620,14 @@
 
 /* Horizontal Slide Bar */
 .slide-bar-container {
-  grid-column: 1 / 5;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 55px;
-  margin-bottom: 38px;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 .slide-bar {
@@ -254,17 +647,20 @@
   justify-content: space-between;
   width: 100%;
   margin-bottom: 10px;
+  padding: 0;
 }
 
 .label-design {
-  font-size: 29px;
-  font-weight: bold;
+  font-family: 'IBM Plex Serif', serif;
+  font-weight: 700;
+  font-size: 27px;
   color: #000;
 }
 
 .label-technology {
-  font-size: 29px;
-  font-weight: bold;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 700;
+  font-size: 27px;
   color: #000;
 }
 
@@ -383,6 +779,7 @@
   font-size: 20px;
   font-weight: bold;
   transition: opacity 0.3s ease;
+  cursor: pointer;
 }
 
 .mobile-nav-link:hover {
@@ -427,15 +824,6 @@
 
 /* Responsive adjustments */
 @media (max-width: 1200px) {
-  .portfolio-grid {
-    margin: 0 30px;
-    gap: 20px;
-  }
-  
-  .portfolio-grid + .portfolio-grid {
-    margin-top: 40px;
-  }
-  
   .portfolio {
     font-size: 28px;
   }
@@ -447,28 +835,33 @@
   .label-design, .label-technology {
     font-size: 28px;
   }
-  
 
+  .nav-bar-container {
+    padding: 33px;
+  }
+  
+  .scrollable-content {
+    padding: 0 33px;
+  }
+  
+  .scrollable-content.projects-active {
+    padding: 0;
+  }
+  
+  .slider-container-wrapper {
+    padding: 33px;
+  }
+
+  /* Tablet CV layout - 2 columns */
+  .cv-section {
+    grid-template-columns: 1fr 1fr;
+    gap: 33px;
+  }
 }
 
 @media (max-width: 768px) {
-  .portfolio-grid {
-    grid-template-columns: 1fr;
-    margin: 0 20px;
-    gap: 20px;
-  }
-  
-  .portfolio-grid + .portfolio-grid {
-    margin-top: 20px;
-  }
-  
   /* Hide desktop navigation on mobile */
   .desktop-nav {
-    display: none;
-  }
-  
-  /* Hide contact in header on mobile since it's in hamburger menu */
-  .contact {
     display: none;
   }
   
@@ -477,52 +870,132 @@
     display: block;
   }
   
-  .about-section {
-    grid-column: 1;
-    margin-top: 20px;
-  }
-  
   .portfolio {
     font-size: 20px;
-    margin: 30px 15px 15px 15px;
+    margin: 0;
+    padding: 0;
     /* Ensure proper viewport handling on mobile */
     height: 100vh; /* Fallback for browsers that don't support dvh */
     height: 100dvh; /* Dynamic viewport height for mobile */
     /* Add safe area insets for devices with notches/home indicators */
     padding-bottom: env(safe-area-inset-bottom, 0px);
   }
+
+  .nav-bar-container {
+    padding: 33px;
+  }
+  
+  .scrollable-content {
+    padding: 0 33px;
+  }
+  
+  .scrollable-content.projects-active {
+    padding: 0;
+  }
+
+  .slider-container-wrapper {
+    padding: 33px;
+  }
   
   .name, .nav-link, .email, .section-title, .main-text, .secondary-text, .year-text, .year, .company, .position, .skill-category, .skill-list, .about-content, .footer-left, .footer-right, .footer-arrow {
     font-size: 20px;
+  }
+
+  .about-content {
+    font-size: 21px !important;
+    margin-top: 33px;
+  }
+
+  .about-text-style-1 {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 400;
+    font-size: 19px;
+    line-height: 24px;
+  }
+  
+  .about-text-style-2 {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 700;
+    font-size: 19px;
+    line-height: 24px;
+  }
+  
+  .about-text-style-3 {
+    font-family: 'IBM Plex Serif', serif;
+    font-weight: 700;
+    font-size: 19px;
+    line-height: 24px;
+  }
+
+  .about-section .contact {
+    font-size: 13px;
+  }
+
+  .about-section .contact a {
+    font-size: 13px;
+  }
+
+  .about-section .contact .email {
+    font-size: 13px;
+  }
+
+  /* Reorder contact above about content on mobile */
+  .about-section {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .about-section .contact {
+    order: -1;
+  }
+
+  /* Mobile font sizes for name and slider categories */
+  .name-rotem, .name-shadur {
+    font-size: 19px;
+  }
+
+  .label-design, .label-technology {
+    font-size: 19px;
   }
 
   .section{
     gap: 20px;
   }
 
-
   .section-title {
     margin-top: 20px;
-    margin-bottom: 0px;
-  }
-  
-  .label-design, .label-technology {
+    margin-bottom: 15px;
+    padding-bottom: 0;
+    border-bottom: none;
     font-size: 20px;
   }
   
+  /* Mobile CV layout - stack columns */
+  .cv-section {
+    grid-template-columns: 1fr;
+    gap: 33px;
+  }
 
+  .cv-section .section {
+    gap: 15px;
+  }
+
+  .cv-section .section-title {
+    font-size: 27px;
+    margin-bottom: 0 !important;
+  }
+  
+  .label-design, .label-technology {
+    font-size: 19px !important;
+  }
   
   /* Mobile slider improvements */
   .slide-bar {
     height: 100px; /* Larger touch target on mobile */
-    /* Ensure slide bar is positioned safely above browser UI */
     margin-bottom: 10px;
   }
   
-  /* Ensure slide bar container has proper spacing from bottom */
   .slide-bar-container {
-    grid-column: 1;
-    /* padding-bottom: 20px; Reduced padding to prevent being too high */
     margin-bottom: 10px;
   }
   
@@ -530,9 +1003,7 @@
     /* Larger touch target for the indicator */
     min-width: 40px;
     min-height: 40px;
-    /* Remove any width constraints to allow full edge movement */
     max-width: none;
-    /* Ensure indicator is always visible and accessible */
     z-index: 10;
   }
   
@@ -552,9 +1023,9 @@
     display: block;
   }
   
-  /* Mobile work layout - single column with title below cover */
+  /* Mobile work layout */
   .work-item {
-    grid-column: 1; /* Span only one column on mobile */
+    margin-bottom: 40px;
   }
   
   .work-item-content {
@@ -576,4 +1047,34 @@
     justify-content: flex-start; /* Align cover to the left */
   }
 
+  .about-section .contact {
+    font-size: 18px;
+  }
+
+  .social-icons {
+    gap: 20px;
+  }
+
+  .social-icons a {
+    font-size: 18px;
+  }
+
+  /* Projects overlay mobile styles */
+  .projects-overlay {
+    bottom: 33px;
+    left: 33px;
+    max-width: calc(100vw - 66px);
+  }
+
+  .project-number {
+    font-size: 19px;
+  }
+
+  .project-name {
+    font-size: 19px;
+  }
+
+  .project-description {
+    font-size: 19px;
+  }
 }
