@@ -5,7 +5,7 @@ interface CVProps {
   calculateOpacity: (tag: string) => number
 }
 
-const CV: React.FC<CVProps> = ({ sliderValue, calculateOpacity }) => {
+const CV: React.FC<CVProps> = ({ calculateOpacity }) => {
   return (
     <div className="cv-section">
       <div className="section">
