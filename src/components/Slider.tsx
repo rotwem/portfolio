@@ -217,7 +217,7 @@ const Slider: React.FC<SliderProps> = ({
           >
             <div className="position-line"></div>
             <div className="slide-bar-arrow" ref={arrowIconRef}>
-              <img src="./double_arrow.png" alt="Double arrow" className="double-arrow-icon" />
+              <img src="./double_arrow.webp" alt="Double arrow" className="double-arrow-icon" />
             </div>
           </div>
         </div>

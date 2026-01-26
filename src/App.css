@@ -895,8 +895,9 @@ body.projects-cursor-hidden .mobile-menu-container * {
 
   .slider-container-wrapper {
     padding: 33px;
+    padding-bottom: 0;
   }
-  
+
   .name, .nav-link, .email, .section-title, .main-text, .secondary-text, .year-text, .year, .company, .position, .skill-category, .skill-list, .about-content, .footer-left, .footer-right, .footer-arrow {
     font-size: 20px;
   }
@@ -992,11 +993,12 @@ body.projects-cursor-hidden .mobile-menu-container * {
   /* Mobile slider improvements */
   .slide-bar {
     height: 100px; /* Larger touch target on mobile */
-    margin-bottom: 10px;
+    margin-bottom: 0;
   }
   
   .slide-bar-container {
-    margin-bottom: 10px;
+    margin-bottom: 0;
+    margin-top: 10px;
   }
   
   .slide-bar-position-indicator {

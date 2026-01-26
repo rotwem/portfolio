@@ -68,7 +68,7 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage, navbarColo
       <div className="mobile-menu-container">
         <button className="hamburger-menu" onClick={toggleMenu}>
           <img 
-            src={isMenuOpen ? "./hamburger_menu/exit.png" : "./hamburger_menu/menu.png"}
+            src={isMenuOpen ? "./hamburger_menu/exit.webp" : "./hamburger_menu/menu.webp"}
             alt={isMenuOpen ? "Close menu" : "Open menu"}
             className="hamburger-icon"
           />
@@ -114,10 +114,10 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage, navbarColo
               <div className="mobile-email" style={{ color: textColor }}>rotwem@gmail.com</div>
               <div className="mobile-social-icons">
                 <a href="https://www.instagram.com/rotwem/" target="_blank" rel="noopener noreferrer">
-                  <img src="./instagrm_logo.png" alt="Instagram" className="mobile-social-icon" />
+                  <img src="./instagrm_logo.webp" alt="Instagram" className="mobile-social-icon" />
                 </a>
                 <a href="https://www.linkedin.com/in/rotem-shadur-6b0628175/" target="_blank" rel="noopener noreferrer">
-                  <img src="./linkedin_logo.png" alt="LinkedIn" className="mobile-social-icon" />
+                  <img src="./linkedin_logo.webp" alt="LinkedIn" className="mobile-social-icon" />
                 </a>
               </div>
             </div>

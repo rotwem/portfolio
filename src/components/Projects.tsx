@@ -16,175 +16,174 @@ interface ProjectInfo {
 }
 const NUMBER_OF_PROJECTS = 21;
 
-// Media files sorted by filename
+// Media files: Evolution first, then rest in original order (videos: .webm + MP4 fallback; images: .webp)
 const MEDIA_FILES = [
-  'F01.mp4',
-  'F02.mp4',
-  'F03.mp4',
-  'F04.mp4',
-  'F05.mp4',
-  'F06.mp4',
-  'F07.mp4',
-  'F08.png',
-  'F09.mp4',
-  'F10.png',
-  'F11.png',
-  'F12.png',
-  'F13.png',
-  'F14.mp4',
-  'F15.mp4',
-  'F16.mp4',
-  'F17.mp4',
-  'F18.mp4',
-  'F19.png',
-  'F20.mp4',
-  'F21.png',
-
+  'F09.webm',   // 1 – Evolution
+  'F10.webp',
+  'F11.webp',
+  'F12.webp',
+  'F13.webp',
+  'F01.webm',   // 6 – The Cognitive Archive
+  'F02.webm',
+  'F03.webm',
+  'F04.webm',
+  'F05.webm',   // 10 – Present Progressive
+  'F06.webm',
+  'F07.webm',
+  'F08.webp',
+  'F14.webm',   // 14 – Corno
+  'F15.webm',
+  'F16.webm',
+  'F17.webm',   // 17 – Spectrums
+  'F18.webm',
+  'F19.webp',
+  'F20.webm',
+  'F21.webp',
 ]
 
 // Project information for each media file (default values - can be updated later)
 const PROJECT_INFO: Record<string, ProjectInfo> = {
-  'F01.mp4': {
-    projectNumber: 1,
+  'F01.webm': {
+    projectNumber: 6,
     totalProjects: NUMBER_OF_PROJECTS,
     name: '"The Cognitive Archive", App Design, 2025',
     description: 'A speculative conversational AI app design for the Israeli antiquities authority.',
     textColor: 'white'
   },
-  'F02.mp4': {
-    projectNumber: 2,
+  'F02.webm': {
+    projectNumber: 7,
     totalProjects: NUMBER_OF_PROJECTS,
     name: '"The Cognitive Archive", App Design, 2025',
     description: 'What if there was a lab for preserving and reconstructing human consciousness as an archeological artifact?',
     textColor: 'white'
   },
-  'F03.mp4': {
-    projectNumber: 3,
+  'F03.webm': {
+    projectNumber: 8,
     totalProjects: NUMBER_OF_PROJECTS,
     name: '"The Cognitive Archive", App Design, 2025',
     description: 'You could chat with Dana International every day to get a boost of confidence and self-esteem.',
     textColor: 'white'
   },
-  'F04.mp4': {
-    projectNumber: 4,
+  'F04.webm': {
+    projectNumber: 9,
     totalProjects: NUMBER_OF_PROJECTS,
     name: '"The Cognitive Archive", App Design, 2025',
     description: 'Or talk to many siginificant figures from history to get their perspective on the present.',
     textColor: 'white'
   },
-  'F05.mp4': {
-    projectNumber: 5,
+  'F05.webm': {
+    projectNumber: 10,
     totalProjects: NUMBER_OF_PROJECTS,
     name: '"Present Progressive", Interactive Experience, 2025',
     description: 'A gaze-controlled interactive experiment exploring how observation constructs reality. You can try it <a href="https://rotwem.github.io/presentprogressive/" target="_blank">here</a>.',
     textColor: 'white'
   },
-  'F06.mp4': {
-    projectNumber: 6,
+  'F06.webm': {
+    projectNumber: 11,
     totalProjects: NUMBER_OF_PROJECTS,
     name: '"Present Progressive", Interactive Experience, 2025',
     description: 'An aesthetic-emotional-technological experiment. You can try it <a href="https://rotwem.github.io/presentprogressive/" target="_blank">here</a>.',
     textColor: 'black'
   },
-  'F07.mp4': {
-    projectNumber: 7,
+  'F07.webm': {
+    projectNumber: 12,
     totalProjects: NUMBER_OF_PROJECTS,
     name: '"Present Progressive", Interactive Experience, 2025',
     description: 'A dual internal dialogue - "I want and I’m trying" / "why am I trying so hard?" You can try it <a href="https://rotwem.github.io/presentprogressive/" target="_blank">here</a>.',
     textColor: 'white'
   },
-  'F08.png': {
-    projectNumber: 8,
+  'F08.webp': {
+    projectNumber: 13,
     totalProjects: NUMBER_OF_PROJECTS,
     name: '"Present Progressive", Interactive Experience, 2025',
     description: 'It looks like a game, but it is not a game. You can try it <a href="https://rotwem.github.io/presentprogressive/" target="_blank">here</a>.',
     textColor: 'white'
   },
-  'F09.mp4': {
-    projectNumber: 9,
+  'F09.webm': {
+    projectNumber: 1,
     totalProjects: NUMBER_OF_PROJECTS,
     name: '"Evolution", Booklet, 2023',
     description: 'A comparative look at biological evolution and genetic algorithms.',
     textColor: 'black'
   },  
-  'F10.png': {
-    projectNumber: 10,
+  'F10.webp': {
+    projectNumber: 2,
     totalProjects: NUMBER_OF_PROJECTS,
     name: '"Evolution", Booklet, 2023',
     description: 'Variation, repetition, selection, and optimization can produce complex forms over time, both in nature and in artificial systems.',
     textColor: 'white'
   },
-  'F11.png': {
-    projectNumber: 11,
+  'F11.webp': {
+    projectNumber: 3,
     totalProjects: NUMBER_OF_PROJECTS,
     name: '"Evolution", Booklet, 2023',
     description: 'The project highlights parallels between biological adaptation and computational decision-making.',
     textColor: 'white'
   },
-  'F12.png': {
-    projectNumber: 12,
+  'F12.webp': {
+    projectNumber: 4,
     totalProjects: NUMBER_OF_PROJECTS,
     name: '"Evolution", Booklet, 2023',
     description: 'A genetic algorithm learning to write the hebrew alphabet.',
     textColor: 'white'
   },
-  'F13.png': {
-    projectNumber: 13,
+  'F13.webp': {
+    projectNumber: 5,
     totalProjects: NUMBER_OF_PROJECTS,
     name: '"Evolution", Booklet, 2023',
     description: 'Ultimately, it questions what is gained and what is lost when evolution is accelerated, automated, and abstracted into code.',
     textColor: 'white'
   },
-  'F14.mp4': {
+  'F14.webm': {
     projectNumber: 14,
     totalProjects: NUMBER_OF_PROJECTS,
     name: '"Corno", App Design, 2024',
     description: 'A mobile app designed to support recovery from porn addiction.',
     textColor: 'white'
   },
-  'F15.mp4': {
+  'F15.webm': {
     projectNumber: 15,
     totalProjects: NUMBER_OF_PROJECTS,
     name: '"Corno", App Design, 2024',
     description: 'Designed as a private, stigma-free space for the people of the internet.',
     textColor: 'white'
   },
-  'F16.mp4': {
+  'F16.webm': {
     projectNumber: 16,
     totalProjects: NUMBER_OF_PROJECTS,
     name: '"Corno", App Design, 2024',
     description: 'The app guides users from the initial decision to quit, through daily progress tracking, motivation and community support.',
     textColor: 'white'
   },
-  'F17.mp4': {
+  'F17.webm': {
     projectNumber: 17,
     totalProjects: NUMBER_OF_PROJECTS,
     name: '"Spectrums", Web Design, 2024',
     description: 'A data-driven, interactive exploration of identity, belief, and empathy in Jerusalem.',
     textColor: 'black'
   },
-  'F18.mp4': {
+  'F18.webm': {
     projectNumber: 18,
     totalProjects: NUMBER_OF_PROJECTS,
     name: '"Spectrums", Web Design, 2024',
     description: 'Participants placed themselves along faith, conservatism and love spectrums and added free-text reflections.',
     textColor: 'black'
   },
-  'F19.png': {  
+  'F19.webp': {  
     projectNumber: 19,
     totalProjects: NUMBER_OF_PROJECTS,
     name: '"Spectrums", Web Design, 2024',
     description: 'The data was analyzed and mapped into a multidimensional visual space.',
     textColor: 'black'
   },
-  'F20.mp4': {
+  'F20.webm': {
     projectNumber: 20,
     totalProjects: NUMBER_OF_PROJECTS,
     name: '"Spectrums", Web Design, 2024',
     description: 'The result was a poetic, non-binary visualization that emphasized the space between extremes.',
     textColor: 'black'
   },
-  'F21.png': {
+  'F21.webp': {
     projectNumber: 21,
     totalProjects: NUMBER_OF_PROJECTS,
     name: '"Spectrums", Web Design, 2024',
@@ -302,7 +301,7 @@ const Projects: React.FC<ProjectsProps> = ({ onTextColorChange }) => {
   }, [])
 
   const currentMedia = MEDIA_FILES[currentIndex]
-  const isVideo = currentMedia.endsWith('.mp4') || currentMedia.endsWith('.mov')
+  const isVideo = currentMedia.endsWith('.webm') || currentMedia.endsWith('.mp4') || currentMedia.endsWith('.mov')
   const projectInfo = PROJECT_INFO[currentMedia] || {
     projectNumber: currentIndex + 1,
     totalProjects: MEDIA_FILES.length,
@@ -326,18 +325,19 @@ const Projects: React.FC<ProjectsProps> = ({ onTextColorChange }) => {
       {isVideo ? (
         <video
           ref={videoRef}
-          src={`./projects_media/${currentMedia}`}
           autoPlay
           muted
           loop
           playsInline
           className="projects-media"
+          src={`./projects_media/${currentMedia}`}
         />
       ) : (
         <img
           src={`./projects_media/${currentMedia}`}
           alt={`Project media ${currentIndex + 1}`}
           className="projects-media"
+          decoding="async"
         />
       )}
       
@@ -351,7 +351,7 @@ const Projects: React.FC<ProjectsProps> = ({ onTextColorChange }) => {
           }}
         >
           <img 
-            src="./single_arrow.png" 
+            src="./single_arrow.webp" 
             alt="Navigation arrow" 
             className="cursor-arrow"
           />
