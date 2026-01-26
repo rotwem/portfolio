@@ -894,8 +894,7 @@ body.projects-cursor-hidden .mobile-menu-container * {
   }
 
   .slider-container-wrapper {
-    padding: 33px;
-    padding-bottom: 0;
+    padding: 10px 33px 0;
   }
 
   .name, .nav-link, .email, .section-title, .main-text, .secondary-text, .year-text, .year, .company, .position, .skill-category, .skill-list, .about-content, .footer-left, .footer-right, .footer-arrow {
