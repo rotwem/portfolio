@@ -893,6 +893,12 @@ body.projects-cursor-hidden .mobile-menu-container * {
     padding: 0;
   }
 
+  /* About: top gap (name → contact) = contact → about text gap */
+  .scrollable-content:has(.about-section) {
+    justify-content: flex-start;
+    padding-top: 0px;
+  }
+
   .slider-container-wrapper {
     padding: 10px 33px 0;
   }
@@ -943,6 +949,7 @@ body.projects-cursor-hidden .mobile-menu-container * {
   .about-section {
     display: flex;
     flex-direction: column;
+    gap: 0px;
   }
 
   .about-section .contact {
@@ -1049,7 +1056,7 @@ body.projects-cursor-hidden .mobile-menu-container * {
   }
 
   .about-section .contact {
-    font-size: 18px;
+    font-size: 19px;
   }
 
   .social-icons {
