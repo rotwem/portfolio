@@ -1004,7 +1004,7 @@ body.projects-cursor-hidden .mobile-menu-container * {
   .slide-bar-position-indicator {
     /* Larger touch target for the indicator */
     min-width: 40px;
-    min-height: 40px;
+    min-height: 20px;
     max-width: none;
     z-index: 10;
   }
