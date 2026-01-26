@@ -453,6 +453,12 @@ body.projects-cursor-hidden .mobile-menu-container * {
   padding-top: 33px;
 }
 
+/* About: no scroll, centered between navbar and slider */
+.scrollable-content:has(.about-section) {
+  overflow-y: hidden;
+  justify-content: center;
+}
+
 /* CV Specific Styling */
 .cv-section {
   gap: 33px;
@@ -891,12 +897,6 @@ body.projects-cursor-hidden .mobile-menu-container * {
   
   .scrollable-content.projects-active {
     padding: 0;
-  }
-
-  /* About: top gap (name → contact) = contact → about text gap */
-  .scrollable-content:has(.about-section) {
-    justify-content: flex-start;
-    padding-top: 0px;
   }
 
   .slider-container-wrapper {
