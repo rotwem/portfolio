@@ -928,16 +928,18 @@ body.projects-cursor-hidden .mobile-menu-container * {
     padding: 0;
     height: 100vh;
     height: 100dvh;
-    padding-bottom: env(safe-area-inset-bottom, 0px);
   }
 
+  /* About/CV: use 100svh so layout matches real mobile (no bottom gap vs DevTools) */
   .portfolio.portfolio-about-cv {
+    height: 100svh;
+    min-height: 100svh;
     padding-bottom: 0;
+    margin-bottom: 0;
   }
   
   .scrollable-content {
     padding: 0 33px;
-    margin-bottom: 16px;
   }
   
   .scrollable-content.projects-active {
@@ -953,7 +955,7 @@ body.projects-cursor-hidden .mobile-menu-container * {
     min-height: 0;
     flex: 1 1 0;
     padding-top: 16px;
-    padding-bottom: 16px;
+    padding-bottom: 12px;
     margin-bottom: 0;
   }
 
@@ -973,8 +975,9 @@ body.projects-cursor-hidden .mobile-menu-container * {
 
   .portfolio.portfolio-about-cv .slider-container-wrapper {
     flex-shrink: 0;
-    padding: 12px 33px 0;
+    padding: 8px 33px 0;
     margin-bottom: 0;
+    padding-bottom: 0;
   }
 
   .name, .nav-link, .email, .section-title, .main-text, .secondary-text, .year-text, .year, .company, .position, .skill-category, .skill-list, .about-content, .footer-left, .footer-right, .footer-arrow {

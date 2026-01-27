@@ -31,6 +31,13 @@ html, body {
   overflow: hidden;
 }
 
+@media (max-width: 768px) {
+  html, body, #root {
+    height: 100svh;
+    min-height: 100svh;
+  }
+}
+
 /* Remove default link styling */
 a {
   text-decoration: none;
