@@ -936,6 +936,7 @@ body.projects-cursor-hidden .mobile-menu-container * {
   
   .scrollable-content {
     padding: 0 33px;
+    margin-bottom: 33px;
   }
   
   .scrollable-content.projects-active {
@@ -947,7 +948,8 @@ body.projects-cursor-hidden .mobile-menu-container * {
   }
 
   .portfolio.portfolio-about-cv .slider-container-wrapper {
-    padding: 12px 33px max(12px, env(safe-area-inset-bottom, 0px));
+    padding: 12px 33px 0;
+    margin-bottom: 0;
   }
 
   .name, .nav-link, .email, .section-title, .main-text, .secondary-text, .year-text, .year, .company, .position, .skill-category, .skill-list, .about-content, .footer-left, .footer-right, .footer-arrow {
