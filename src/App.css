@@ -457,6 +457,8 @@ body.projects-cursor-hidden .mobile-menu-container * {
 .scrollable-content:has(.about-section) {
   overflow-y: hidden;
   justify-content: center;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 /* CV Specific Styling */
@@ -889,6 +891,13 @@ body.projects-cursor-hidden .mobile-menu-container * {
 
   .nav-bar-container {
     padding: 33px;
+    align-items: flex-start;
+  }
+
+  /* Align hamburger with name: same top margin (33px) */
+  .hamburger-menu {
+    top: 33px;
+    right: 33px;
   }
   
   .scrollable-content {
@@ -900,7 +909,7 @@ body.projects-cursor-hidden .mobile-menu-container * {
   }
 
   .slider-container-wrapper {
-    padding: 10px 33px 0;
+    padding: 10px 33px 8px;
   }
 
   .name, .nav-link, .email, .section-title, .main-text, .secondary-text, .year-text, .year, .company, .position, .skill-category, .skill-list, .about-content, .footer-left, .footer-right, .footer-arrow {
