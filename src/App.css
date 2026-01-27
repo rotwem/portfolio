@@ -1012,6 +1012,8 @@ body.projects-cursor-hidden .mobile-menu-container * {
 
   .about-section .contact {
     font-size: 16px;
+    margin-top: 0;
+    gap: 12px;
   }
 
   .about-section .contact a {
