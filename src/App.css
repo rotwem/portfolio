@@ -902,6 +902,7 @@ body.projects-cursor-hidden .mobile-menu-container * {
     justify-content: space-between;
     align-items: center;
     padding: 24px 33px;
+    margin-top: 33px;
     width: 100%;
   }
 
