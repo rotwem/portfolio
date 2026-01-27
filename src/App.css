@@ -902,7 +902,7 @@ body.projects-cursor-hidden .mobile-menu-container * {
     justify-content: space-between;
     align-items: center;
     padding: 16px 33px;
-    margin-top: 0;
+    margin-top: 10px;
     width: 100%;
     flex-shrink: 0;
   }
