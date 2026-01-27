@@ -1071,7 +1071,7 @@ body.projects-cursor-hidden .mobile-menu-container * {
   
   /* Mobile slider improvements */
   .slide-bar {
-    height: 100px; /* Larger touch target on mobile */
+    height: 70px; /* Larger touch target on mobile */
     margin-bottom: 0;
   }
   
