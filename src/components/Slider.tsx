@@ -208,16 +208,17 @@ const Slider: React.FC<SliderProps> = ({
             <div className="label-design">Design</div>
             <div className="label-technology">Technology</div>
           </div>
-          <div className="slide-bar-line"></div>
-          <div 
-            className="slide-bar-position-indicator" 
-            ref={arrowRef} 
-            onDoubleClick={handleDoubleClick}
-            onTouchEnd={handleDoubleTap}
-          >
-            <div className="position-line"></div>
-            <div className="slide-bar-arrow" ref={arrowIconRef}>
-              <img src="./double_arrow.webp" alt="Double arrow" className="double-arrow-icon" />
+          <div className="slide-bar-line">
+            <div 
+              className="slide-bar-position-indicator" 
+              ref={arrowRef} 
+              onDoubleClick={handleDoubleClick}
+              onTouchEnd={handleDoubleTap}
+            >
+              <div className="position-line"></div>
+              <div className="slide-bar-arrow" ref={arrowIconRef}>
+                <img src="./double_arrow.webp" alt="Double arrow" className="double-arrow-icon" />
+              </div>
             </div>
           </div>
         </div>

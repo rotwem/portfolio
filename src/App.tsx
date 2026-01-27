@@ -23,7 +23,7 @@ function App() {
   }
 
   return (
-    <div className="portfolio">
+    <div className={`portfolio ${currentPage === 'about' || currentPage === 'cv' ? 'portfolio-about-cv' : ''}`}>
       <Header 
         currentPage={currentPage} 
         setCurrentPage={setCurrentPage}

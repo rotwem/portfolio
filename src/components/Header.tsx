@@ -21,7 +21,7 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage, navbarColo
   const textColor = navbarColor === 'white' ? '#fff' : '#000'
 
   return (
-    <>
+    <header className="site-header">
       <div className="nav-bar-container" style={{ color: textColor }}>
         <div className="name" style={{ color: textColor }}>
           <span className="name-rotem" style={{ color: textColor }}>Rotem</span>
@@ -64,7 +64,6 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage, navbarColo
         </nav>
       </div>
 
-      {/* Mobile Hamburger Menu - Outside the grid */}
       <div className="mobile-menu-container">
         <button className="hamburger-menu" onClick={toggleMenu}>
           <img 
@@ -124,7 +123,7 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage, navbarColo
           </nav>
         </div>
       </div>
-    </>
+    </header>
   )
 }
 
