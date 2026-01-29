@@ -106,13 +106,6 @@ const PROJECT_INFO: Record<string, ProjectInfo> = {
     description: 'A comparative look at biological evolution and genetic algorithms.',
     textColor: 'black'
   },
-  'M09.webm': {
-    projectNumber: 1,
-    totalProjects: NUMBER_OF_PROJECTS,
-    name: '"Evolution", Booklet, 2023',
-    description: 'A comparative look at biological evolution and genetic algorithms.',
-    textColor: 'black'
-  },
   'F10.webp': {
     projectNumber: 2,
     totalProjects: NUMBER_OF_PROJECTS,
@@ -224,10 +217,10 @@ const Projects: React.FC<ProjectsProps> = ({ onTextColorChange }) => {
     return () => mq.removeEventListener('change', update)
   }, [])
 
-  // Resolved media file: on mobile, show M09.webm instead of F09.webm for Evolution (index 0)
+  // Resolved media file: desktop uses F* files, mobile uses M* (same order, e.g. F01 ↔ M01)
   const currentMedia = MEDIA_FILES[currentIndex]
-  const displayMedia =
-    isMobile && currentMedia === 'F09.webm' ? 'M09.webm' : currentMedia
+  const displayMedia = isMobile ? currentMedia.replace(/^F/, 'M') : currentMedia
+  const projectInfoKey = displayMedia.startsWith('M') ? 'F' + displayMedia.slice(1) : displayMedia
 
   // Handle mouse movement for custom cursor (desktop only; on mobile, cursor stays hidden)
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -304,21 +297,21 @@ const Projects: React.FC<ProjectsProps> = ({ onTextColorChange }) => {
 
   // Update navbar color when project changes
   useEffect(() => {
-    const projectInfo = PROJECT_INFO[displayMedia]
+    const projectInfo = PROJECT_INFO[projectInfoKey]
     if (projectInfo && onTextColorChange) {
       onTextColorChange(projectInfo.textColor)
     }
-  }, [currentIndex, displayMedia, onTextColorChange])
+  }, [currentIndex, displayMedia, projectInfoKey, onTextColorChange])
 
   // Set initial navbar color on mount and when display media changes
   useEffect(() => {
     if (onTextColorChange) {
-      const projectInfo = PROJECT_INFO[displayMedia]
+      const projectInfo = PROJECT_INFO[projectInfoKey]
       if (projectInfo) {
         onTextColorChange(projectInfo.textColor)
       }
     }
-  }, [onTextColorChange, displayMedia])
+  }, [onTextColorChange, displayMedia, projectInfoKey])
 
   // Hide default cursor globally when projects page is active
   useEffect(() => {
@@ -333,7 +326,7 @@ const Projects: React.FC<ProjectsProps> = ({ onTextColorChange }) => {
   }, [])
 
   const isVideo = displayMedia.endsWith('.webm') || displayMedia.endsWith('.mp4') || displayMedia.endsWith('.mov')
-  const projectInfo = PROJECT_INFO[displayMedia] || {
+  const projectInfo = PROJECT_INFO[projectInfoKey] || {
     projectNumber: currentIndex + 1,
     totalProjects: MEDIA_FILES.length,
     name: 'Project Name, Type, Year',
