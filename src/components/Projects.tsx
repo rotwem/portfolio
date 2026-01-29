@@ -105,7 +105,14 @@ const PROJECT_INFO: Record<string, ProjectInfo> = {
     name: '"Evolution", Booklet, 2023',
     description: 'A comparative look at biological evolution and genetic algorithms.',
     textColor: 'black'
-  },  
+  },
+  'M09.webm': {
+    projectNumber: 1,
+    totalProjects: NUMBER_OF_PROJECTS,
+    name: '"Evolution", Booklet, 2023',
+    description: 'A comparative look at biological evolution and genetic algorithms.',
+    textColor: 'black'
+  },
   'F10.webp': {
     projectNumber: 2,
     totalProjects: NUMBER_OF_PROJECTS,
@@ -192,15 +199,42 @@ const PROJECT_INFO: Record<string, ProjectInfo> = {
   },
 }
 
+const MOBILE_BREAKPOINT_PX = 768
+
 const Projects: React.FC<ProjectsProps> = ({ onTextColorChange }) => {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [showCursor, setShowCursor] = useState(false)
+  const [isMobile, setIsMobile] = useState(() =>
+    typeof window !== 'undefined' && window.innerWidth < MOBILE_BREAKPOINT_PX
+  )
   const containerRef = useRef<HTMLDivElement>(null)
   const videoRef = useRef<HTMLVideoElement>(null)
 
-  // Handle mouse movement for custom cursor
+  // Track mobile viewport for Evolution media swap (F09 → M09) and hide custom cursor on mobile
+  useEffect(() => {
+    const mq = window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT_PX - 1}px)`)
+    const update = () => {
+      const mobile = mq.matches
+      setIsMobile(mobile)
+      if (mobile) setShowCursor(false)
+    }
+    mq.addEventListener('change', update)
+    update()
+    return () => mq.removeEventListener('change', update)
+  }, [])
+
+  // Resolved media file: on mobile, show M09.webm instead of F09.webm for Evolution (index 0)
+  const currentMedia = MEDIA_FILES[currentIndex]
+  const displayMedia =
+    isMobile && currentMedia === 'F09.webm' ? 'M09.webm' : currentMedia
+
+  // Handle mouse movement for custom cursor (desktop only; on mobile, cursor stays hidden)
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (isMobile) {
+      setShowCursor(false)
+      return
+    }
     // Check if mouse is on navbar - hide cursor if so
     const target = e.target as HTMLElement
     const navBar = document.querySelector('.nav-bar-container')
@@ -258,7 +292,7 @@ const Projects: React.FC<ProjectsProps> = ({ onTextColorChange }) => {
     }
   }
 
-  // Reset video when index changes
+  // Reset video when index or display media (mobile F09↔M09) changes
   useEffect(() => {
     if (videoRef.current) {
       videoRef.current.load()
@@ -266,27 +300,25 @@ const Projects: React.FC<ProjectsProps> = ({ onTextColorChange }) => {
         // Ignore autoplay errors
       })
     }
-  }, [currentIndex])
+  }, [currentIndex, displayMedia])
 
   // Update navbar color when project changes
   useEffect(() => {
-    const currentMedia = MEDIA_FILES[currentIndex]
-    const projectInfo = PROJECT_INFO[currentMedia]
+    const projectInfo = PROJECT_INFO[displayMedia]
     if (projectInfo && onTextColorChange) {
       onTextColorChange(projectInfo.textColor)
     }
-  }, [currentIndex, onTextColorChange])
+  }, [currentIndex, displayMedia, onTextColorChange])
 
-  // Set initial navbar color on mount
+  // Set initial navbar color on mount and when display media changes
   useEffect(() => {
     if (onTextColorChange) {
-      const currentMedia = MEDIA_FILES[currentIndex]
-      const projectInfo = PROJECT_INFO[currentMedia]
+      const projectInfo = PROJECT_INFO[displayMedia]
       if (projectInfo) {
         onTextColorChange(projectInfo.textColor)
       }
     }
-  }, [onTextColorChange])
+  }, [onTextColorChange, displayMedia])
 
   // Hide default cursor globally when projects page is active
   useEffect(() => {
@@ -300,9 +332,8 @@ const Projects: React.FC<ProjectsProps> = ({ onTextColorChange }) => {
     }
   }, [])
 
-  const currentMedia = MEDIA_FILES[currentIndex]
-  const isVideo = currentMedia.endsWith('.webm') || currentMedia.endsWith('.mp4') || currentMedia.endsWith('.mov')
-  const projectInfo = PROJECT_INFO[currentMedia] || {
+  const isVideo = displayMedia.endsWith('.webm') || displayMedia.endsWith('.mp4') || displayMedia.endsWith('.mov')
+  const projectInfo = PROJECT_INFO[displayMedia] || {
     projectNumber: currentIndex + 1,
     totalProjects: MEDIA_FILES.length,
     name: 'Project Name, Type, Year',
@@ -330,11 +361,11 @@ const Projects: React.FC<ProjectsProps> = ({ onTextColorChange }) => {
           loop
           playsInline
           className="projects-media"
-          src={`./projects_media/${currentMedia}`}
+          src={`./projects_media/${displayMedia}`}
         />
       ) : (
         <img
-          src={`./projects_media/${currentMedia}`}
+          src={`./projects_media/${displayMedia}`}
           alt={`Project media ${currentIndex + 1}`}
           className="projects-media"
           decoding="async"
