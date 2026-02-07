@@ -99,7 +99,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 15px;
+  padding: 33px;
   margin: 0;
   width: 100%;
   flex-shrink: 0;
@@ -1099,7 +1099,7 @@ body.projects-cursor-hidden .mobile-menu-container * {
   }
   
   .slide-bar-container {
-    margin-bottom: 0;
+    margin-bottom: 6px;
     margin-top: 6px;
   }
   
