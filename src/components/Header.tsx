@@ -65,20 +65,30 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage, navbarColo
       </div>
 
       <div className="mobile-menu-container">
-        <button className="hamburger-menu" onClick={toggleMenu}>
+        <button className="hamburger-menu" onClick={toggleMenu} aria-label="Open menu">
           <img 
-            src={isMenuOpen ? "./hamburger_menu/exit.webp" : "./hamburger_menu/menu.webp"}
-            alt={isMenuOpen ? "Close menu" : "Open menu"}
+            src={navbarColor === "white" ? "./new_menu/menu_w.png" : "./new_menu/menu_b.png"}
+            alt="Open menu"
             className="hamburger-icon"
           />
         </button>
         
         <div className={`mobile-nav-overlay ${isMenuOpen ? 'open' : ''}`}>
+          <button
+            className="mobile-menu-exit"
+            onClick={toggleMenu}
+            aria-label="Close menu"
+          >
+            <img
+              src="./new_menu/exit_b.png"
+              alt=""
+              className="mobile-menu-exit-icon"
+            />
+          </button>
           <nav className="mobile-nav">
             <a 
               href="#about" 
               className={`mobile-nav-link ${currentPage === 'about' ? 'active' : ''}`}
-              style={{ color: textColor }}
               onClick={(e) => {
                 e.preventDefault()
                 handleNavClick('about')
@@ -87,20 +97,8 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage, navbarColo
               About
             </a>
             <a 
-              href="#cv" 
-              className={`mobile-nav-link ${currentPage === 'cv' ? 'active' : ''}`}
-              style={{ color: textColor }}
-              onClick={(e) => {
-                e.preventDefault()
-                handleNavClick('cv')
-              }}
-            >
-              CV
-            </a>
-            <a 
               href="#projects" 
               className={`mobile-nav-link ${currentPage === 'projects' ? 'active' : ''}`}
-              style={{ color: textColor }}
               onClick={(e) => {
                 e.preventDefault()
                 handleNavClick('projects')
@@ -108,18 +106,16 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage, navbarColo
             >
               Projects
             </a>
-            
-            <div className="mobile-contact">
-              <div className="mobile-email" style={{ color: textColor }}>rotwem@gmail.com</div>
-              <div className="mobile-social-icons">
-                <a href="https://www.instagram.com/rotwem/" target="_blank" rel="noopener noreferrer">
-                  <img src="./instagrm_logo.webp" alt="Instagram" className="mobile-social-icon" />
-                </a>
-                <a href="https://www.linkedin.com/in/rotem-shadur-6b0628175/" target="_blank" rel="noopener noreferrer">
-                  <img src="./linkedin_logo.webp" alt="LinkedIn" className="mobile-social-icon" />
-                </a>
-              </div>
-            </div>
+            <a 
+              href="#cv" 
+              className={`mobile-nav-link ${currentPage === 'cv' ? 'active' : ''}`}
+              onClick={(e) => {
+                e.preventDefault()
+                handleNavClick('cv')
+              }}
+            >
+              CV
+            </a>
           </nav>
         </div>
       </div>

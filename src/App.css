@@ -791,18 +791,46 @@ body.projects-cursor-hidden .mobile-menu-container * {
   right: 0;
 }
 
+.mobile-menu-exit {
+  position: absolute;
+  top: 33px;
+  right: 33px;
+  z-index: 1002;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px 0 8px 8px; /* Match hamburger alignment with content margin */
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 44px;
+  height: 44px;
+}
+
+.mobile-menu-exit-icon {
+  width: 100%;
+  height: auto;
+  transition: opacity 0.3s ease;
+}
+
+.mobile-menu-exit:hover .mobile-menu-exit-icon {
+  opacity: 0.7;
+}
+
 .mobile-nav {
   display: flex;
   flex-direction: column;
-  gap: 40px;
-  align-items: flex-start;
+  gap: 29px;
+  align-items: center;
+  justify-content: center;
 }
 
 .mobile-nav-link {
-  text-decoration: none;
+  text-decoration: underline;
   color: #000;
-  font-size: 20px;
-  font-weight: bold;
+  font-family: 'IBM Plex Serif', serif;
+  font-weight: 400;
+  font-size: 19px;
   transition: opacity 0.3s ease;
   cursor: pointer;
 }
@@ -813,38 +841,6 @@ body.projects-cursor-hidden .mobile-menu-container * {
 
 .mobile-nav-link.active {
   text-decoration: underline;
-  font-style: italic;
-}
-
-.mobile-contact {
-  margin-top: 60px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 30px;
-}
-
-.mobile-email {
-  font-size: 20px;
-  color: #000;
-  text-align: left;
-}
-
-.mobile-social-icons {
-  display: flex;
-  gap: 30px;
-  align-items: center;
-}
-
-.mobile-social-icon {
-  width: 20px;
-  height: 20px;
-  cursor: pointer;
-  transition: opacity 0.3s ease;
-}
-
-.mobile-social-icon:hover {
-  opacity: 0.7;
 }
 
 /* Responsive adjustments */
@@ -917,11 +913,28 @@ body.projects-cursor-hidden .mobile-menu-container * {
   .hamburger-menu {
     position: static;
     flex-shrink: 0;
-    padding: 8px;
+    padding: 8px 0 8px 8px; /* No right padding so icon aligns with 33px content margin like title/slider */
     width: 44px;
     height: 44px;
+    transform: scale(0.7);
+    transform-origin: right center;
   }
-  
+
+  /* Hide hamburger when overlay is open; exit button takes its place */
+  .mobile-menu-container:has(.mobile-nav-overlay.open) .hamburger-menu {
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .mobile-nav-link {
+    font-size: 16px;
+  }
+
+  .mobile-menu-exit {
+    transform: scale(0.7);
+    transform-origin: top right;
+  }
+
   .portfolio {
     font-size: 20px;
     margin: 0;
